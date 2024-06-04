@@ -1,0 +1,40 @@
+:host {
+    .container {
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 36px;
+            margin-top: 24px;
+            .card {
+                width: 150px;
+                padding: 10px;
+            }
+        }
+    
+        .search-control {
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            height: 35px;
+            color: white;
+            max-width: 300px;
+        }
+        .search-title {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            padding: 36px;
+            position: relative;
+            span {
+                font-size: 60px;
+            }
+            .bold {
+                font-weight: 600;
+            }
+            .title {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

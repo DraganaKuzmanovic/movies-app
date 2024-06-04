@@ -1,0 +1,74 @@
+:host {
+    .container {
+        background-color: #121212;
+        display: flex;
+        .cover-image {
+            height: 100vh;
+            width: 50vw;
+            object-fit: cover;
+            position: relative;
+        }
+        .arrow {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background-color: black;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .text-box {
+            padding: 16px;
+            .rating-box {
+                display: flex;
+                gap: 4px;
+            }
+            .heading {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                .star {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            .genres-list {
+                display: flex;
+                gap: 16px;
+                .type {
+                    border-radius: 5px;
+                    background: #c8cfca;
+                    color: black;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+            }
+            .row {
+                .subtitle {
+                    color: #c8cfca;
+                }
+                margin-bottom: 8px;
+
+            }
+        }
+
+        p {
+            line-height: 22px;
+            color: #c8cfca;
+        }
+        hr {
+            margin-bottom: 32px;
+        }
+    }
+    @media (max-width: 860px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+            .cover-image {
+                width: 100%;
+            }
+        }
+    }
+}

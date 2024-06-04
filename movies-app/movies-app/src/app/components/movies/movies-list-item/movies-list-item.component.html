@@ -1,0 +1,9 @@
+<div class="list-container">
+    @if (item?.image?.medium) {
+        <img [src]="item?.image?.medium" class="image-container"/>
+    }
+    @else {
+        <img src="../../../../assets/images/no-image.jpg" class="image-container"/>
+    }
+    <span>{{item?.name}}</span>
+</div>
