@@ -1,0 +1,64 @@
+<div class="container">
+    @if (ui.loading) {
+        <div class="spinner"></div>
+        }
+    @if (movie$ | async; as movie) {
+        <div>
+            <img [src]="movie?.image?.original ? 
+            movie?.image?.original : '../../../assets/images/no-image.jpg'" class="cover-image"/>
+            <img src="../../../../assets/images/back.svg" class="arrow" (click)="getBack()"/>
+        </div>
+        <div class="text-box">
+            <div class="heading">
+                <h1>{{ movie?.name }}</h1>
+                @if (movie?.rating?.average) {
+                    <div class="rating-box">
+                        <img class="star" src="../../../../assets/images/star.svg"/>
+                        <span>{{ movie?.rating?.average }}</span>
+                    </div>
+                }
+            </div>
+            @if (movie?.genres?.length || movie?.type) {
+                <div class="genres-list">
+                    <span class="type">{{movie?.type}}</span>
+                    @for (genre of movie?.genres; track genre) {
+                        <span>{{genre}}</span>
+                    }
+                </div>
+            }
+            <p [innerHTML]="movie?.summary"></p>
+            <hr color="#c8cfca"/>
+            @if (movie?.status) {
+                <div class="row">
+                    <span class="subtitle">Status: </span>
+                    <span>{{movie?.status}}</span>
+                </div>
+            }
+            @if (movie?.network?.name) {
+                <div class="row">
+                    <span class="subtitle">Network: </span>
+                    <span>{{movie?.network?.name}}</span>
+                </div>
+            }
+            @if (movie?.schedule?.days?.length) {
+                <div class="row">
+                    <span class="subtitle">Schedule: </span>
+                    @for (day of movie?.schedule?.days; track day) {
+                        <span>{{ day + ', '}}</span>
+                    }
+                    <span>{{movie?.schedule?.time}}</span>
+                </div>
+            }
+            @if (movie?.language) {
+                <div class="row">
+                    <span class="subtitle">Language: </span>
+                    <span>{{movie?.language}}</span>
+                </div>
+            }
+        </div>
+
+    }
+    @if (errorMsg()) {
+        <app-snackbar [message]="errorMsg()"></app-snackbar>
+    }
+</div>

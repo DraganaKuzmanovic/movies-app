@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="search-title">
+        <input id="name" type="text" [formControl]="searchControl" 
+        class="search-control" placeholder="Search the movie..">
+        <div class="title">
+            <span class=bold>Movies</span>
+            <span>for everyone.</span>
+        </div>
+    </div>
+    @if (ui.loading) {
+        <div class="spinner"></div>
+    }
+    @if((movies$ | async); as movies) {
+        <div class="cards">
+            @for (movie of movies; track movie.id) {
+                <div class="card" (click)="displayDetails(movie.id)">
+                    <app-movies-list-item [item]="movie"></app-movies-list-item>
+                </div>
+            }
+        </div>
+    }
+    @if (errorMsg()) {
+        <app-snackbar [message]="errorMsg()"></app-snackbar>
+    }
+</div>
